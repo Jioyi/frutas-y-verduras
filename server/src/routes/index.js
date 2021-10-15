@@ -7,5 +7,6 @@ router.get('/', (req, res) => {
 
 router.use('/category',require('./category'));
 router.use('/product',require('./product'));
+router.use('/image',require('./image'));
 
 module.exports = router;

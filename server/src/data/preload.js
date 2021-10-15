@@ -15,14 +15,12 @@ const preload = async () => {
 		await CategorysCreated[0].addProduct(productsCreated[2]);
 		await CategorysCreated[0].addProduct(productsCreated[3]);
 		await CategorysCreated[0].addProduct(productsCreated[4]);
+		await CategorysCreated[0].addProduct(productsCreated[5]);
 
-		await CategorysCreated[1].addProduct(productsCreated[5]);
 		await CategorysCreated[1].addProduct(productsCreated[6]);
 		await CategorysCreated[1].addProduct(productsCreated[7]);
 		await CategorysCreated[1].addProduct(productsCreated[8]);
 		await CategorysCreated[1].addProduct(productsCreated[9]);
-
-
 	} catch (error) {
 		console.log('error', error);
 	}

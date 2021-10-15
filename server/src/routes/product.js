@@ -5,22 +5,7 @@ const { Product, Category } = require('../db.js');
 router.get('/:ID', async (req, res, next) => {
 	try {
 		const { ID } = req.params;
-
-		if (ID && ID !== '') {
-			const category = await Category.findOne({
-				where: { ID },
-				attributes: ['ID'],
-				include: [
-					{
-						model: Product,
-						as: 'products',
-					},
-				],
-			});
-			return res.status(200).json({
-				products: category?.products ? category.products : [],
-			});
-		} else {
+		if(ID === "all"){
 			const products = await Product.findAll({
 				attributes: ['ID', 'name', 'description', 'price', 'image', 'stock'],
 			});
@@ -28,6 +13,20 @@ router.get('/:ID', async (req, res, next) => {
 				products: products,
 			});
 		}
+
+		const category = await Category.findOne({
+			where: { ID },
+			attributes: ['ID'],
+			include: [
+				{
+					model: Product,
+					as: 'products',
+				},
+			],
+		});
+		return res.status(200).json({
+			products: category?.products ? category.products : [],
+		});
 	} catch (error) {
 		next(error);
 	}
