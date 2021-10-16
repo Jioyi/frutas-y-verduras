@@ -5,6 +5,7 @@ const path = require('path');
 
 router.get('/:image', async (req, res, next) => {
 	try {
+		
 		const { image } = req.params;
 		const extension = image.substring(image.lastIndexOf('.') + 1).toLowerCase();
 		fs.readFile(path.join(__dirname, `/../images/${image}`), (err, content) => {
