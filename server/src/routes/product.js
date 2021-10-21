@@ -25,7 +25,7 @@ router.get('/:ID', async (req, res, next) => {
 			],
 		});
 		return res.status(200).json({
-			products: category?.products ? category.products : [],
+			products: category ? category.products : [],
 		});
 	} catch (error) {
 		next(error);
